@@ -32,17 +32,27 @@ public class SpringdataApplication implements CommandLineRunner {
 		Scanner sc = new Scanner(System.in);
 		
 		while (system) {
-			System.out.println("Qual açao você quer executar?");
+			System.out.println("Qual ação você quer executar?");
 			System.out.println("0 - Sair");
-			System.out.println("1 - Cargo");
+			System.out.println("1 - Salvar");
+			System.out.println("2 - Atualizar");
 			
 			int action = sc.nextInt();
 			
-			if (action == 1) {
-				cargoService.inicial(sc);
+			switch (action) {
+			case 0:
+				system = false;
+				break;
+			case 1:
+				cargoService.salvar(sc);
+				break;
+			case 2:
+				cargoService.atualizar(sc);
+				break;
+
+			default:
+				system = false;
 			}
-			
-			system = false;
 		}
 		
 		sc.close();
