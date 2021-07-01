@@ -28,7 +28,6 @@ public class CrudCargoService {
 		}
 		//cargos.forEach(cargo -> System.out.println(cargo));
 		System.out.println("---");
-		System.out.println();
 	}
 
 	public void salvar(Scanner sc) {
@@ -52,6 +51,14 @@ public class CrudCargoService {
 		cargo.setDescricao(descricacao);
 		cargoRepository.save(cargo);
 		System.out.println("Cargo Atualizado!");
+	}
+	
+	public void excluir(Scanner sc) {
+		System.out.println();
+		System.out.println("Insira o ID:");
+		long id = sc.nextInt();
+		cargoRepository.deleteById(id);
+		System.out.println("Cargo Excluído!");
 	}
 
 }
