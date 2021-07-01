@@ -1,5 +1,6 @@
 package br.com.alura.springdata.modelo;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
@@ -22,13 +23,23 @@ public class CrudCargoService {
 	public void visualisar() {
 		System.out.println();
 		System.out.println("Cargos Cadastrados:");
+		//cargos.forEach(cargo -> System.out.println(cargo));
 		Iterable<Cargo> cargos = cargoRepository.findAll();
 		for (Cargo cargo : cargos) {
 			System.out.println(cargo);
 		}
-		//cargos.forEach(cargo -> System.out.println(cargo));
 		System.out.println("---");
 	}
+	
+	public void visualisarPorId(Scanner sc) {
+		System.out.println();
+		System.out.println("Insira o ID:");
+		long id = sc.nextInt();
+		Optional<Cargo> cargo = cargoRepository.findById(id);
+		System.out.println(cargo);
+		System.out.println("---");
+	}
+
 
 	public void salvar(Scanner sc) {
 		System.out.println("Insira a Descrição Do Cargo:");
