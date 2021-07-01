@@ -36,6 +36,7 @@ public class SpringdataApplication implements CommandLineRunner {
 			System.out.println("0 - Sair");
 			System.out.println("1 - Salvar");
 			System.out.println("2 - Atualizar");
+			System.out.println("3 - Visualizar");
 			
 			int action = sc.nextInt();
 			
@@ -48,6 +49,9 @@ public class SpringdataApplication implements CommandLineRunner {
 				break;
 			case 2:
 				cargoService.atualizar(sc);
+				break;
+			case 3:
+				cargoService.visualisar();
 				break;
 
 			default:

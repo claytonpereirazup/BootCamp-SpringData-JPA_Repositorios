@@ -18,6 +18,18 @@ public class CrudCargoService {
 	public void inicial(Scanner sc) {
 		salvar(sc);
 	}
+	
+	public void visualisar() {
+		System.out.println();
+		System.out.println("Cargos Cadastrados:");
+		Iterable<Cargo> cargos = cargoRepository.findAll();
+		for (Cargo cargo : cargos) {
+			System.out.println(cargo);
+		}
+		//cargos.forEach(cargo -> System.out.println(cargo));
+		System.out.println("---");
+		System.out.println();
+	}
 
 	public void salvar(Scanner sc) {
 		System.out.println("Insira a Descrição Do Cargo:");
@@ -40,7 +52,6 @@ public class CrudCargoService {
 		cargo.setDescricao(descricacao);
 		cargoRepository.save(cargo);
 		System.out.println("Cargo Atualizado!");
-		
 	}
 
 }
